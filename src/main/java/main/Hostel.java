@@ -35,11 +35,15 @@ public class Hostel{
 	             BufferedReader br = new BufferedReader(new FileReader("hostel.txt"));
 	               String line = null;
 	            
-	               //write your code here !!!
+	               boolean readData=true;
 	               while ((line = br.readLine()) != null) {
 		               String[] splited = line.split("\\s+");
 		               String checkName = splited[0];
 		               //write your code here !!!
+		               if(checkName.equals(name))
+		               {
+		            	 return false; 
+		               }
 //		               compare check name with name and return true if present and false if not
 	               }
 	               
@@ -51,6 +55,14 @@ public class Hostel{
 	   }
        public static void allotHostel(){
     	   //write your code here!!!
+    	   try
+    	   {
+    		   writedata();
+    	   }
+    	   catch(Exception e)
+    	   {
+    		   System.out.println(e);
+    	   }
     	   
        }
 
@@ -76,7 +88,10 @@ public class Hostel{
     	   boolean chk = true;
     	   
     	   //write your code here
-    	   
+    	   if(readData(name))
+    		   chk=false;
+    	   else
+    		   chk=true;
     	   return chk;
         }
         
